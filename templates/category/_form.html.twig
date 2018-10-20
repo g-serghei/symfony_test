@@ -1,0 +1,15 @@
+{% form_theme form 'form/form_errors.html.twig' %}
+
+{{ form_start(form) }}
+
+    <div class="form-group {{ form.name.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.name, 'Name', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name) }}
+        {{ form_help(form.name) }}
+    </div>
+
+    <div class="text-right">
+        <button class="btn btn-primary">{{ button_label | default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

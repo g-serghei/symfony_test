@@ -1,0 +1,42 @@
+{% form_theme form 'form/form_errors.html.twig' %}
+
+{{ form_start(form) }}
+    <div class="form-group {{ form.name.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.name, 'Name', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.name) }}
+        {{ form_help(form.name) }}
+    </div>
+
+    <div class="form-group {{ form.description.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.description, 'Description', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.description) }}
+        {{ form_help(form.description) }}
+    </div>
+
+    <div class="form-group {{ form.image.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.image, 'Image', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.image) }}
+        {{ form_help(form.image) }}
+    </div>
+
+    <div class="form-group {{ form.price.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.price, 'Price', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.price, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.price, {'attr': {'class': 'form-control'}}) }}
+        {{ form_help(form.price) }}
+    </div>
+
+    <div class="form-group {{ form.category.vars.errors|length ? 'has-error' : '' }}">
+        {{ form_label(form.category, 'Category', {'label_attr': {'class': 'control-label'}}) }}
+        {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+        {{ form_errors(form.category) }}
+        {{ form_help(form.category) }}
+    </div>
+
+    <div class="text-right">
+        <button class="btn btn-primary">{{ button_label | default('Save') }}</button>
+    </div>
+{{ form_end(form) }}

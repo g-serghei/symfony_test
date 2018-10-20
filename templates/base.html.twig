@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link href="{{ asset('build/app.css') }}" rel="stylesheet"/>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ path('product_index') }}">Test Task</a>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ path('product_index') }}">Products</a></li>
+                    <li><a href="{{ path('category_index') }}">Categories</a></li>
+                </ul>
+                <form method="get" class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input name="keywords" type="text" class="form-control" placeholder="Enter keywords">
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    {% block body %}{% endblock %}
+</div>
+
+<script src="{{ asset('build/app.js') }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+            <h3>Edit Product</h3>
+
+            {{ include('product/_form.html.twig', {'button_label': 'Update'}) }}
+
+            <a href="{{ path('product_index') }}">Back to products list</a>
+        </div>
+    </div>
+{% endblock %}
