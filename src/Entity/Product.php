@@ -18,11 +18,17 @@ class Product
     private $id;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 255
+     * )
      * @ORM\Column(type="string", length=255)
      */
     private $name;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
@@ -36,13 +42,15 @@ class Product
     private $image;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="float")
      */
     private $price;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true, onDelete="SET NULL")
      */
     private $category;
 
