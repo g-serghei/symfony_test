@@ -25,7 +25,7 @@ class ProductController extends AbstractController
     public function index(ProductRepository $productRepository, Request $request): Response
     {
         $keywords = $request->query->get('keywords', null);
-        if ($keywords) {
+        if ($keywords && is_string($keywords)) {
             $products = $productRepository->searchByKeywords($keywords);
         } else {
             $products = $productRepository->findAll();

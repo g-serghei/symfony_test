@@ -29,7 +29,7 @@ class Product
 
     /**
      * @Assert\NotBlank()
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="text", nullable=false)
      */
     private $description;
 

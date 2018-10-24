@@ -21,7 +21,7 @@ class CategoryController extends AbstractController
     public function index(CategoryRepository $categoryRepository, Request $request): Response
     {
         $keywords = $request->query->get('keywords', null);
-        if ($keywords) {
+        if ($keywords && is_string($keywords)) {
             $categories = $categoryRepository->searchByKeywords($keywords);
         } else {
             $categories = $categoryRepository->findAll();
